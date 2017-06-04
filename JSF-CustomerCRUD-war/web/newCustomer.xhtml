@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <div>
+                Discount_Code:
+                <h:selectOneMenu id="discountCode" value="#{customerBean.discountSelected}">
+                    <f:selectItems value="#{customerBean.listDiscount}" var="discount" itemValue="#{discount.discountCode}" itemLabel="#{discount.rate}"></f:selectItems>
+                </h:selectOneMenu>
+            </div>
+            <div>
+                Zip_Code:
+                <h:selectOneMenu id="zip" value="#{customerBean.zipSelected}">
+                    <f:selectItems value="#{customerBean.listZip}" var="zip" itemValue="#{zip.zipCode}" itemLabel="#{zip.zipCode}"></f:selectItems>
+                </h:selectOneMenu>
+            </div>
+                
+            <div>
+                Name:  <h:inputText id="name" value="#{customerBean.customerSelected.name}"></h:inputText>
+            </div>
+            <div>
+                Address 1: <h:inputText id="ad1" value="#{customerBean.customerSelected.addressline1}"></h:inputText>
+            </div>
+            <div>
+                Address 2: <h:inputText id="ad2" value="#{customerBean.customerSelected.addressline2}"></h:inputText>
+            </div>
+            <div>
+                City: <h:inputText id="city" value="#{customerBean.customerSelected.city}"></h:inputText>
+            </div>
+            <div>
+               State: <h:inputText maxlength="2" id="state" value="#{customerBean.customerSelected.state}"></h:inputText>
+            </div>
+            <div>
+                Phone: <h:inputText maxlength="12" id="phone" value="#{customerBean.customerSelected.phone}"></h:inputText>
+            </div>
+            <div>
+                Fax: <h:inputText maxlength="12" id="fax" value="#{customerBean.customerSelected.fax}"></h:inputText>
+            </div>
+            <div>
+               Email:  <h:inputText id="email" value="#{customerBean.customerSelected.email}"></h:inputText>
+            </div>
+            <div>
+                Credit_Limit: <h:inputText id="creditLimit"  value="#{customerBean.customerSelected.creditLimit}"></h:inputText>
+            </div>
+            <br></br>
+            <h:commandButton value="Guardar" action="#{customerEditBean.saveCustomer()}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

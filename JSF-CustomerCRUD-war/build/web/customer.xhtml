@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{customerBean.listCustomer}" var="customer" border="1" >
+                <h:column>
+                    <f:facet name="header">CUSTOMER_ID</f:facet> #{customer.customerId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">DISCOUNT_CODE</f:facet> #{customer.discountCode.discountCode}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ZIP</f:facet>  #{customer.zip.zipCode}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>  #{customer.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ADDRESS_LINE1</f:facet>  #{customer.addressline1}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ADDRESS_LINE2</f:facet>  #{customer.addressline2}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CITY</f:facet> #{customer.city}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">STATE</f:facet>  #{customer.state}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">PHONE</f:facet>  #{customer.phone}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">FAX</f:facet>  #{customer.fax}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">EMAIL</f:facet>  #{customer.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CREDIR_LIMIT</f:facet> #{customer.creditLimit}
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Edit" action="#{customerEditBean.editCustomer(customer)}"></h:commandButton>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Delete" action="#{customerBean.deleteCustomer(customer.customerId)}"></h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <br></br>
+            <h:commandButton value="Create new Customer" action="#{customerBean.createCustomer()}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+
